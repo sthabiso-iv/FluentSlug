@@ -39,6 +39,7 @@ class Core {
 		}
 
 		nocache_headers();
+		add_filter( 'show_admin_bar', '__return_false' );
 
 		$template = locate_template( 'fluent-slug/conversational-form.php' );
 

@@ -43,23 +43,18 @@ $page_title  = $form_title ? "{$form_title} — {$site_name}" : $site_name;
 	<title><?php echo esc_html( $page_title ); ?></title>
 	<?php wp_head(); ?>
 	<style>
+		* { box-sizing: border-box; }
 		html, body {
-			margin: 0;
-			padding: 0;
+			margin: 0 !important;
+			padding: 0 !important;
 			width: 100%;
 			height: 100%;
-			overflow: hidden;
 		}
-		.fluent-slug-form-wrap {
-			width: 100%;
-			min-height: 100vh;
-		}
+		#wpadminbar { display: none !important; }
 	</style>
 </head>
 <body class="fluent-slug-conversational-page">
-	<div class="fluent-slug-form-wrap">
-		<?php echo do_shortcode( '[fluentform id="' . $form_id . '" type="conversational"]' ); ?>
-	</div>
+	<?php echo do_shortcode( '[fluentform id="' . $form_id . '" type="conversational"]' ); ?>
 	<?php wp_footer(); ?>
 </body>
 </html>
