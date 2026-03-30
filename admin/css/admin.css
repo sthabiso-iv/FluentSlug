@@ -1,0 +1,54 @@
+.fluent-slug-wrap {
+	max-width: 1100px;
+}
+
+.fluent-slug-wrap .description {
+	margin-bottom: 20px;
+	color: #666;
+}
+
+.fluent-slug-table {
+	margin-top: 16px;
+}
+
+.fluent-slug-table th {
+	font-weight: 600;
+}
+
+.fluent-slug-table td {
+	vertical-align: middle;
+	padding: 12px 10px;
+}
+
+.fluent-slug-form {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.fluent-slug-form input[type="text"] {
+	flex: 1;
+	min-width: 180px;
+}
+
+.fluent-slug-help {
+	margin-top: 32px;
+	padding: 16px 20px;
+	background: #f9f9f9;
+	border-left: 4px solid #2271b1;
+	max-width: 700px;
+}
+
+.fluent-slug-help h3 {
+	margin-top: 0;
+}
+
+.fluent-slug-help ul {
+	margin: 0;
+	padding-left: 20px;
+}
+
+.fluent-slug-help ul li {
+	margin-bottom: 6px;
+	color: #444;
+}
