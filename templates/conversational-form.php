@@ -25,7 +25,9 @@ $form = $wpdb->get_row(
 	)
 );
 
-if ( ! $form || 'published' !== $form->status ) {
+$active_statuses = [ 'published', 'active', '1', 1 ];
+
+if ( ! $form || ! in_array( $form->status, $active_statuses, false ) ) {
 	wp_die( esc_html__( 'This form is not available.', 'fluent-slug' ) );
 }
 

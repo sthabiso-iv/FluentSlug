@@ -55,14 +55,15 @@ class Admin {
 
 			<?php if ( empty( $forms ) ) : ?>
 				<div class="notice notice-warning inline">
-					<p><?php esc_html_e( 'No conversational forms found. Create a conversational form in FluentForms first.', 'fluent-slug' ); ?></p>
+					<p><?php esc_html_e( 'No forms found. Make sure FluentForms has at least one form.', 'fluent-slug' ); ?></p>
 				</div>
 			<?php else : ?>
 				<table class="wp-list-table widefat fixed striped fluent-slug-table">
 					<thead>
 						<tr>
 							<th><?php esc_html_e( 'Form', 'fluent-slug' ); ?></th>
-							<th><?php esc_html_e( 'Form ID', 'fluent-slug' ); ?></th>
+							<th><?php esc_html_e( 'ID', 'fluent-slug' ); ?></th>
+							<th><?php esc_html_e( 'Type', 'fluent-slug' ); ?></th>
 							<th><?php esc_html_e( 'Custom Slug', 'fluent-slug' ); ?></th>
 							<th><?php esc_html_e( 'Full URL', 'fluent-slug' ); ?></th>
 							<th><?php esc_html_e( 'Actions', 'fluent-slug' ); ?></th>
@@ -75,6 +76,7 @@ class Admin {
 						<tr>
 							<td><strong><?php echo esc_html( $form->title ); ?></strong></td>
 							<td><?php echo esc_html( $form->id ); ?></td>
+							<td><code><?php echo esc_html( $form->type ?: '—' ); ?></code></td>
 							<td>
 								<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="fluent-slug-form">
 									<?php wp_nonce_field( 'fluent_slug_save_' . $form->id, '_wpnonce' ); ?>
@@ -242,8 +244,7 @@ class Admin {
 		global $wpdb;
 
 		return $wpdb->get_results(
-			"SELECT id, title FROM {$wpdb->prefix}fluentform_forms
-			 WHERE type = 'conversational'
+			"SELECT id, title, type FROM {$wpdb->prefix}fluentform_forms
 			 ORDER BY created_at DESC"
 		) ?: [];
 	}
